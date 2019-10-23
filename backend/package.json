@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -e js,json ./bootstrap.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/app.js --out-file build/app.js",
+    "dev": "export DEBUG=backend:* && nodemon --exec babel-node src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "express-validator": "^6.2.0",
+    "graphql": "^14.5.8",
+    "helmet": "^3.21.2",
+    "knex": "^0.19.5",
+    "morgan": "^1.9.1",
+    "objection": "^1.6.11",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "sqlite3": "^4.1.0"
+  }
+}
