@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon -e js,json ./bootstrap.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "build": "babel src/app.js --out-file build/app.js",
     "dev": "export DEBUG=backend:* && nodemon --exec babel-node src/app.js"
   },
@@ -33,6 +33,10 @@
     "@babel/core": "^7.6.4",
     "@babel/node": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.2",
     "sqlite3": "^4.1.0"
   }
 }

@@ -61,3 +61,5 @@ server.listen(port)
 
 __app(`Server started on port : ${port}`)
 __app('ready')
+
+module.exports = server
