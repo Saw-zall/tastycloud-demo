@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -e js,json ./bootstrap.js",
+    "start": "babel-node src/app.js",
     "test": "mocha",
     "build": "babel src/app.js --out-file build/app.js",
     "dev": "export DEBUG=backend:* && nodemon --exec babel-node src/app.js"
