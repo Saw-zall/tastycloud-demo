@@ -10,10 +10,6 @@ import                               './config/db'
 
 var __app = require('debug')('backend:app')
 
-//const rateLimit  = require("express-rate-limit")
-//const slowDown   = require('express-slow-down')
-//const tools      = require('./helpers/tools')
-
 __app('initializing...')
 const app = express()
 var   server = http.Server(app)
@@ -31,7 +27,6 @@ app.use(`/products`, require('./endpoints/Products/Router'))
 app.use(`/foodstuffs`, require('./endpoints/Foodstuffs/Router'))
 
 app.use(function(req, res, next) {
-  // console.log(req.path);
   let err = new Error('Not Found')
   err.status = 404
   next(err)

@@ -30,7 +30,7 @@ class Product {
       product = await productQueries.findById(params.productId)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (product) {
@@ -61,7 +61,7 @@ class Product {
       result = await productQueries.find(query)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     res.set('X-Total-Count', result.total)
@@ -89,11 +89,11 @@ class Product {
       product = await productQueries.create(body)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (!product) {
-      ApiResponse.badRequest(req, res)
+      ApiResponse.badRequest(req, res, 'DEFAULT_ERROR')
     } else {
       ApiResponse.createSuccess(req, res, product)
     }
@@ -119,13 +119,13 @@ class Product {
       updated = await productQueries.update(body)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res, e)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (updated) {
       ApiResponse.success(req, res, updated)
     } else {
-      ApiResponse.badRequest(req, res)
+      ApiResponse.badRequest(req, res, 'DEFAULT_ERROR')
     }
   }
 
@@ -149,7 +149,7 @@ class Product {
       deleted = await productQueries.deleteById(params.productId)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (!deleted) {
@@ -179,13 +179,13 @@ class Product {
       // deleted = await productQueries.delete(query)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res, e)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (deleted) {
       ApiResponse.noContent(req, res)
     } else {
-      ApiResponse.badRequest(req, res)
+      ApiResponse.badRequest(req, res, 'DEFAULT_ERROR')
     }
   }
   

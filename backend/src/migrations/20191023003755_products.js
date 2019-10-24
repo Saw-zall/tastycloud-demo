@@ -5,10 +5,10 @@ exports.up = function(knex) {
     table.string('title').notNullable()
     table.string('description').notNullable()
     table.string('image')
-    table.integer('cook')
+    table.specificType('cook', 'INT[]');
     table.integer('price').unsigned().notNullable()
     table.string('currency').notNullable()
-  }) 
+  })
 }
 
 exports.down = function(knex) {

@@ -35,17 +35,6 @@ class ApiResponseWrapper {
     res.status(status).json(err)
   }
 
-  badCredentials (req, res) {
-    let status = codes.UNAUTHORIZED
-    res.status(status).send(errors.BAD_EMAIL_PASSWORD)
-  }
-
-  forbidden (req, res, errorName) {
-    let status = codes.FORBIDDEN
-    let error = errors[errorName]
-    res.status(status).send(error)
-  }
-
   badRequest (req, res, errorName) {
     let status = codes.BAD_REQUEST
     try {
@@ -64,21 +53,6 @@ class ApiResponseWrapper {
     } catch (e) {
       res.status(status).send()
     }
-  }
-
-  conflict (req, res, errorName) {
-    let status = codes.CONFLICT
-    try {
-      let error = errors[errorName]
-      res.status(status).send(error)
-    } catch (e) {
-      res.status(status).send()
-    }
-  }
-
-  unprocessable (req, res, errors) {
-    let status = codes.UNPROCESSABLE_ENTITY
-    res.status(status).json(errors)
   }
 }
 

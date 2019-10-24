@@ -30,7 +30,7 @@ class Foodstuff {
       foodstuff = await foodstuffQueries.findById(params.foodstuffId)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (foodstuff) {
@@ -61,7 +61,7 @@ class Foodstuff {
       result = await foodstuffQueries.find(query)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     res.set('X-Total-Count', result.total)
@@ -89,11 +89,11 @@ class Foodstuff {
       foodstuff = await foodstuffQueries.create(body)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (!foodstuff) {
-      ApiResponse.badRequest(req, res)
+      ApiResponse.badRequest(req, res, 'DEFAULT_ERROR')
     } else {
       ApiResponse.createSuccess(req, res, foodstuff)
     }
@@ -119,13 +119,13 @@ class Foodstuff {
       updated = await foodstuffQueries.update(body)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res, e)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (updated) {
       ApiResponse.success(req, res, updated)
     } else {
-      ApiResponse.badRequest(req, res)
+      ApiResponse.badRequest(req, res, 'DEFAULT_ERROR')
     }
   }
 
@@ -149,7 +149,7 @@ class Foodstuff {
       deleted = await foodstuffQueries.deleteById(params.foodstuffId)
     } catch (e) {
       console.error(e)
-      return ApiResponse.internalError(req, res)
+      return ApiResponse.internalError(req, res, 'DEFAULT_ERROR')
     }
 
     if (!deleted) {
@@ -185,7 +185,7 @@ class Foodstuff {
     if (deleted) {
       ApiResponse.noContent(req, res)
     } else {
-      ApiResponse.badRequest(req, res)
+      ApiResponse.badRequest(req, res, 'DEFAULT_ERROR')
     }
   }
 

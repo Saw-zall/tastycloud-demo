@@ -32,13 +32,16 @@ router.route('/')
     rejectOnBadParameter,
     ProductController.create
   )
+  .put(
+    updateValidator,
+    rejectOnBadParameter,
+    ProductController.putOne
+  )
   .delete(
     searchValidator,
     rejectOnBadParameter,
     ProductController.deleteAll
   )
-
-// router.param('productId', ControlResourceAccess('product'))
 
 router.route('/:productId')
   .get(
@@ -46,19 +49,10 @@ router.route('/:productId')
     rejectOnBadParameter,
     ProductController.getOne
   )
-  .put(
-    updateValidator,
-    rejectOnBadParameter,
-    ProductController.putOne
-  )
   .delete(
     resourceIdValidator,
     rejectOnBadParameter,
     ProductController.deleteOne
   )
-
-/* *********************** NON REST ENDPOINTS *********************************/
-
-/* ********************* END NON REST ENDPOINTS *******************************/
 
 module.exports = router

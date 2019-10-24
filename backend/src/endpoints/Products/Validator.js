@@ -1,8 +1,6 @@
 import { check, body, param, query } from 'express-validator/check'
 
 let isFoodstuffsIdsOnly = (array, { req }) => {
-  // if (array.length === 0) return (false)
-
   for (const i in array) {
     if (typeof array[i] === 'object') {
       if (!array[i].hasOwnProperty('id')) return (false)
