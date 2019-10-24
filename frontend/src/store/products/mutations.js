@@ -13,3 +13,7 @@ export function updateOne (state, product) {
 export function addOne (state, product) {
   Vue.set(state.all, product.id, product)
 }
+
+export function deleteOne (state, id) {
+  Vue.delete(state.all, id)
+}

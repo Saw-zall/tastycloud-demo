@@ -12,7 +12,7 @@
 
       <q-card-actions align="around">
         <q-btn flat round color="teal" icon="edit" @click="modalEditOpen = true" />
-        <q-btn flat round color="red" icon="delete" @click="$emit('delete')"/>
+        <q-btn flat round color="red" icon="delete" @click="deleteProduct"/>
       </q-card-actions>
     </q-card>
 
@@ -54,6 +54,18 @@ export default {
       set (value) {
         this.$store.commit('updateOne', value)
       }
+    }
+  },
+  methods: {
+    deleteProduct () {
+      this.$axios
+        .delete(`/products/${this.product.id}`)
+        .then(res => {
+          this.$store.commit('products/deleteOne', this.product.id)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 }

@@ -9,7 +9,7 @@
 
       <div class="col-3" style="height: auto">
 
-       <q-card>
+        <q-card>
           <q-card-section>
             <div class="text-h6">Ajouter un plat</div>
           </q-card-section>
@@ -21,11 +21,11 @@
 
       </div>
 
-    <q-dialog v-model="modalCreateOpen">
-      <create-product
-        @saved="modalCreateOpen = false"
-      />
-    </q-dialog>
+      <q-dialog v-model="modalCreateOpen">
+        <create-product
+          @saved="modalCreateOpen = false"
+        />
+      </q-dialog>
 
     </div>
   </q-page>
