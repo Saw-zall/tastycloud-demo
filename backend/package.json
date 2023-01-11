@@ -24,7 +24,7 @@
     "express-validator": "^6.2.0",
     "graphql": "^14.5.8",
     "helmet": "^3.21.2",
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "morgan": "^1.9.1",
     "objection": "^1.6.11",
     "pg": "^7.12.1"
